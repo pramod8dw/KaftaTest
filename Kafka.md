@@ -118,10 +118,27 @@ Event-driven architectures (EDA) rely on **asynchronous communication** between 
 
 ---
 
-## Bonus: Kafka Streams & ksqlDB
 
-- **Kafka Streams**: Java library for building apps that process data directly from Kafka topics.
-- **ksqlDB**: SQL-based engine for real-time stream processing on Kafka. Great for filtering, joining, and transforming data using SQL syntax.
+### Bonus: Kafka Streams Overview
+
+Kafka Streams is a client library for building applications and microservices that process and analyze data stored in Kafka. It allows you to build real-time, scalable, and fault-tolerant stream processing applications using standard Java APIs.
+
+**Key Features:**
+- No separate cluster required (runs as part of your app)
+- Supports stateless and stateful operations (e.g., map, filter, join, windowed aggregations)
+- Fault-tolerant with state recovery
+- Integrates with Kafka topics for both input and output
+
+**Example (Java):**
+```java
+StreamsBuilder builder = new StreamsBuilder();
+builder.stream("input-topic")
+       .mapValues(value -> value.toString().toUpperCase())
+       .to("output-topic");
+KafkaStreams streams = new KafkaStreams(builder.build(), props);
+streams.start();
+```
+
 
 ---
 

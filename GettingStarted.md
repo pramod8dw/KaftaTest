@@ -118,6 +118,7 @@ kafka-consumer-groups.sh \
 ```
 
 📌 This will show:
+
 - Current offsets
 - Lag per partition
 - Partition assignment
